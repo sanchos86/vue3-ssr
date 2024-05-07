@@ -1,9 +1,9 @@
 export const routes = [
   {
-    name: 'Home',
+    name: 'HomePage',
     path: '/',
     components: {
-      default: () => import('Pages/home/Home.vue'),
+      default: () => import('Pages/home-page/HomePage.vue'),
     },
   },
   {
