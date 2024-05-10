@@ -9,6 +9,7 @@ export default defineConfig({
       Router: resolve(process.cwd(), './src/router'),
       Pages: resolve(process.cwd(), './src/pages'),
       Components: resolve(process.cwd(), './src/components'),
+      HttpClient: resolve(process.cwd(), './http-client'),
     },
   },
 });
