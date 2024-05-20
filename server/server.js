@@ -52,7 +52,8 @@ app.use('*', async (req, res, next) => {
     const rendered = await render(url, ssrManifest);
 
     const html = template
-      .replace(`<!--app-html-->`, rendered.appHtml ?? '');
+      .replace(`<!--app-html-->`, rendered.appHtml ?? '')
+      .replace(`<!--initialState-->`, rendered.initialState ?? '');
 
     res.status(200).set({ 'Content-Type': 'text/html' }).send(html);
   } catch (e) {

@@ -5,7 +5,7 @@ import { httpClient } from 'HttpClient/http-client';
 
 export const render = async (url) => {
   const ctx = {};
-  const { app, router } = createUniversalApp();
+  const { app, router, store } = createUniversalApp();
 
   // TODO move to createUniversalApp
   app.use(httpClient, {
@@ -16,6 +16,9 @@ export const render = async (url) => {
   await router.isReady();
 
   const appHtml = await renderToString(app, ctx);
+  const initialState = `<script>
+    window.__INITIAL_STATE__ = ${JSON.stringify(store.state)};
+  </script>`;
 
-  return { appHtml };
+  return { appHtml, initialState };
 };

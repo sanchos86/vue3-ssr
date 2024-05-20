@@ -7,17 +7,17 @@ export const routes = [
     },
   },
   {
-    name: 'Jokes',
-    path: '/jokes',
+    name: 'JokesCategoriesPage',
+    path: '/jokes-categories',
     components: {
-      default: () => import('Pages/jokes/Jokes.vue'),
+      default: () => import('Pages/jokes-categories-page/JokesCategoriesPage.vue'),
     },
   },
   {
-    name: 'JokeItem',
-    path: '/jokes/:id',
+    name: 'JokeByCategoryPage',
+    path: '/jokes/:category',
     components: {
-      default: () => import('Pages/joke-item/JokeItem.vue'),
+      default: () => import('Pages/joke-by-category-page/JokeByCategoryPage.vue'),
     },
   },
 ];

@@ -1,5 +1,4 @@
 ### TODO
-- state manager
 - code splitting
 
 ### source code
