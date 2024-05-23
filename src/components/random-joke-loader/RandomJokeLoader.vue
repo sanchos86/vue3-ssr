@@ -18,7 +18,7 @@ const joke = ref(null);
 const error = ref('');
 
 try {
-  const response = await httpClient.$http.request({
+  const response = await httpClient.instance.request({
     url: Math.random() > 0.5 ? 'random' : 'test',
   });
   joke.value = response.data;

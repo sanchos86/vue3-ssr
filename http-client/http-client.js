@@ -4,17 +4,19 @@ import { inject } from 'vue';
 import { HTTP_CLIENT_KEY } from './injection-symbols';
 
 class HttpClient {
-  $http;
+  instance;
 
   constructor(config) {
-    this.$http = axios.create(config);
+    this.instance = axios.create(config);
   }
 }
 
-export const httpClient = {
-  install(app, options) {
-    app.provide(HTTP_CLIENT_KEY, new HttpClient(options));
-  },
+export const httpClientProvider = (app, options) => {
+  const httpClient = new HttpClient(options);
+
+  app.provide(HTTP_CLIENT_KEY, httpClient);
+
+  return httpClient;
 };
 
 export function useHttpClient() {

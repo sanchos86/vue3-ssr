@@ -12,4 +12,15 @@ export default defineConfig({
       HttpClient: resolve(process.cwd(), './http-client'),
     },
   },
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks: (id) => {
+          if (id.includes('node_modules') && id.includes('vue3-lazy-hydration')) {
+            return 'vue3-lazy-hydration';
+          }
+        },
+      }
+    }
+  }
 });
